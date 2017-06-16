@@ -15,8 +15,8 @@ ENV PATH /opt/conda/bin:$PATH
 
 ADD requirements.txt /
 
-RUN conda create -n wb_env python=2 python anaconda -y && source activate wb_env && pip install -r /requirements.txt && \
-    source deactivate && conda create -n wb_env_offline --clone wb_env --offline && \
-    tar -cvzf /opt/conda/envs/wb_env_offline.tar.gz /opt/conda/envs/wb_env_offline/
+RUN conda create -n my_env python=2 python anaconda -y && source activate my_env && pip install -r /requirements.txt && \
+    source deactivate && conda create -n my_env_offline --clone my_env --offline && \
+    tar -cvzf /opt/conda/envs/my_env_offline.tar.gz /opt/conda/envs/my_env_offline/
 
-CMD /bin/mv /opt/conda/envs/wb_env_offline.tar.gz /extract/
+CMD /bin/mv /opt/conda/envs/my_env_offline.tar.gz /extract/
